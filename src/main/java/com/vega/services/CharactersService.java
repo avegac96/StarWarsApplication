@@ -23,6 +23,12 @@ public class CharactersService {
     @Inject
     private CharactersClient charactersClient;
 
+    /**
+     * Given a planet's name, returns its inhabitants
+     * @param planetName
+     * @return
+     * @throws MalformedURLException
+     */
     public List<String> getCharactersFromPlanet(String planetName) throws MalformedURLException {
         List<String> charactersName = new ArrayList<>();
 

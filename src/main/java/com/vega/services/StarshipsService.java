@@ -22,6 +22,12 @@ public class StarshipsService {
     @Inject
     private StarshipsClient starshipsClient;
 
+    /**
+     * Given a character's name, returns starships used by them
+     * @param characterName
+     * @return
+     * @throws MalformedURLException
+     */
     public List<Starship> getStarshipsUsedByCharacter(String characterName) throws MalformedURLException {
         List<Starship> starships = new ArrayList<>();
 

@@ -40,13 +40,4 @@ public class Planet {
 
     @JsonProperty("films")
     private List<String> films;
-
-    @JsonProperty("created")
-    private String created;
-
-    @JsonProperty("edited")
-    private String edited;
-
-    @JsonProperty("url")
-    private String url;
 }

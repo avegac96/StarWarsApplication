@@ -10,6 +10,6 @@
     http://localhost:6969/starships?characterName={characterName}
     
 ## Swagger
-    http://localhost:6969/swagger/views/swagger-ui    
+    http://localhost:6969/swagger/views/swagger-ui/index.html    
 
 

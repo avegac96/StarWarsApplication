@@ -7,6 +7,8 @@ import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.QueryValue;
 import io.micronaut.scheduling.TaskExecutors;
 import io.micronaut.scheduling.annotation.ExecuteOn;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,6 +25,9 @@ public class CharactersController {
     @Inject
     private CharactersService charactersService;
 
+    @Operation(summary = "Returns a list of inhabitants' names of the specified planet")
+    @ApiResponse(responseCode = "200", description = "The search was successful")
+    @ApiResponse(responseCode = "500", description = "An error has occurred")
     @Get
     public HttpResponse<List<String>> getCharactersFromPlanet(@QueryValue String planetName) {
         List<String> characters;
