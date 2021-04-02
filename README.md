@@ -9,5 +9,8 @@
 
     http://localhost:6969/characters?planetName={planetName}
     http://localhost:6969/starships?characterName={characterName}
+    
+## Swagger
+    http://localhost:6969/swagger/views/swagger-ui    
 
 
