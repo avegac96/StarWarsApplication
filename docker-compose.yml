@@ -1,0 +1,6 @@
+version: "3.7"
+services:
+  docker-starwars-app:
+    build: .
+    ports:
+      - "6969:8080"
