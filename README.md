@@ -1,4 +1,4 @@
-#StarWars Application
+# StarWars Application
 
 ## Docker
 
