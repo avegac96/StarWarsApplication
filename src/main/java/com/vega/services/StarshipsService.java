@@ -30,8 +30,8 @@ public class StarshipsService {
         if(characterSearch != null &&
                 characterSearch.getCharacters() != null &&
                 characterSearch.getCharacters().size() > 0) {
-            Character character = characterSearch.getCharacters().get(0);
 
+            Character character = characterSearch.getCharacters().get(0);
             for(String starshipURL : character.getStarships()) {
                 String id = URLParser.getIDFromURL(starshipURL);
                 Starship starship = starshipsClient.getStarshipByID(id);

@@ -31,8 +31,8 @@ public class CharactersService {
         if(planetSearch != null &&
                 planetSearch.getPlanets() != null &&
                 planetSearch.getPlanets().size() > 0) {
-            Planet planet = planetSearch.getPlanets().get(0);
 
+            Planet planet = planetSearch.getPlanets().get(0);
             for(String characterURL : planet.getResidents()) {
                 String id = URLParser.getIDFromURL(characterURL);
                 Character character = charactersClient.getCharacterByID(id);

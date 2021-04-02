@@ -8,6 +8,8 @@ import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.QueryValue;
 import io.micronaut.scheduling.TaskExecutors;
 import io.micronaut.scheduling.annotation.ExecuteOn;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import java.net.MalformedURLException;
@@ -17,26 +19,26 @@ import java.util.List;
 @ExecuteOn(TaskExecutors.IO)
 public class StarshipsController {
 
+    private static final Logger logger = LoggerFactory.getLogger(StarshipsController.class);
+
     @Inject
     private StarshipsService starshipsService;
 
     @Get
     public HttpResponse<List<Starship>> getStarshipsUsedByCharacter(@QueryValue String characterName) {
+        List<Starship> starships;
         try {
-            List<Starship> starships = starshipsService.getStarshipsUsedByCharacter(characterName);
-
-            if(starships != null) {
-                if(starships.size() == 0)
-                    return HttpResponse.notFound();
-                return HttpResponse.ok(starships);
-            }
-
+            starships = starshipsService.getStarshipsUsedByCharacter(characterName);
         } catch (MalformedURLException e) {
-            // Pintamos log y devolvemos un HTTP Response de error
-            e.printStackTrace();
+            logger.error("Error: ", e.getMessage());
+            return HttpResponse.serverError();
+        }
+
+        if(starships != null) {
+            logger.info("Starships used by character '" + characterName + "': " + starships.toString());
+            return HttpResponse.ok(starships);
         }
 
         return HttpResponse.serverError();
     }
-
 }
