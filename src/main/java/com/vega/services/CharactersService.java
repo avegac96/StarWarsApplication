@@ -28,7 +28,9 @@ public class CharactersService {
 
         PlanetSearch planetSearch = planetsClient.getPlanetByName(planetName);
 
-        if(planetSearch != null && planetSearch.getPlanets() != null) {
+        if(planetSearch != null &&
+                planetSearch.getPlanets() != null &&
+                planetSearch.getPlanets().size() > 0) {
             Planet planet = planetSearch.getPlanets().get(0);
 
             for(String characterURL : planet.getResidents()) {

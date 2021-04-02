@@ -27,7 +27,9 @@ public class StarshipsService {
 
         CharacterSearch characterSearch = charactersClient.getCharacterByName(characterName);
 
-        if(characterSearch != null && characterSearch.getCharacters() != null) {
+        if(characterSearch != null &&
+                characterSearch.getCharacters() != null &&
+                characterSearch.getCharacters().size() > 0) {
             Character character = characterSearch.getCharacters().get(0);
 
             for(String starshipURL : character.getStarships()) {

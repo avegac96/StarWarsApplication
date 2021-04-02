@@ -1,3 +1,5 @@
 micronaut:
   application:
     name: starWarsApplication
+  server:
+    port: 6969
