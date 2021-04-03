@@ -2,7 +2,8 @@
 
 ## Docker
     $ ./gradlew build
-    $ docker-compose up
+    $ docker build -f Dockerfile -t docker-starwars-app .
+    $ docker run -p 6969:8080 docker-starwars-app
 
 ## Endpoints
 
