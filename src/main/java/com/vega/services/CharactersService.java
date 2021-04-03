@@ -42,7 +42,8 @@ public class CharactersService {
             for(String characterURL : planet.getResidents()) {
                 String id = URLParser.getIDFromURL(characterURL);
                 Character character = charactersClient.getCharacterByID(id);
-                charactersName.add(character.getName());
+                if(character != null)
+                    charactersName.add(character.getName());
             }
         }
 

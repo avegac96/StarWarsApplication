@@ -41,7 +41,8 @@ public class StarshipsService {
             for(String starshipURL : character.getStarships()) {
                 String id = URLParser.getIDFromURL(starshipURL);
                 Starship starship = starshipsClient.getStarshipByID(id);
-                starships.add(starship);
+                if(starship != null)
+                    starships.add(starship);
             }
         }
 
