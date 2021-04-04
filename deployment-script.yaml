@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: starwars-app
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: starwars-app
+  template:
+    metadata:
+      labels:
+        app: starwars-app
+    spec:
+      containers:
+        - name: starwars-app
+          image: docker-starwars-app
+          resources: { }
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 6969
+
+
